@@ -43,8 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button centerButton = findViewById(R.id.center_button);
         centerButton.setOnClickListener(v -> {
-            //Intent intent = new Intent(MainActivity.this, AnotherActivity.class);
-            //startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("instructions", instructions);
+            startActivity(intent);
+            instructions = "";
+            textView.setText(instructions);
+            cardinalPointsCount = 0;
+            countButton.setText("Numar de selectii: " + cardinalPointsCount);
         });
         if (savedInstanceState != null) {
             cardinalPointsCount = savedInstanceState.getInt("cardinalPointsCount", 0);
