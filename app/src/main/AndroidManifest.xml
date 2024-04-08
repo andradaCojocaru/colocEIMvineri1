@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"></uses-permission>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"></uses-permission>
+
 
     <application
         android:allowBackup="true"
@@ -14,7 +17,7 @@
         tools:targetApi="31">
         <activity
             android:name=".SecondActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -24,6 +27,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".Colocviu1Service"
+            android:exported="false"
+            android:enabled="true" >
+        </service>
+        <service android:name=".Colocviu1_1Service" />
+        <service android:name=".ServiceColocviu" />
+        <service android:name=".BunService" />
+
+        <receiver android:name=".BroadcastApp"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ro.pub.cs.systems.eim.myapplication.action.broadcast" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
